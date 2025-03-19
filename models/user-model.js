@@ -33,8 +33,8 @@ userSchema.pre("save", async function (next) {
     next();
   }
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync("B4c0//", salt);
+    const salt = await bcrypt.genSaltSync(10);
+    const hash = await bcrypt.hash(user.password, salt);
     user.password = hash;
   } catch (error) {
     next(error);
