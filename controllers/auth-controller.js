@@ -1,9 +1,7 @@
 
 
-// Login Code 
-
+// Login Code  
 const User = require('../models/user-model'); 
-
 const Login = async (req,res) => {
     try {
         console.log("reqq",req.body); 
