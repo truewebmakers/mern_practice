@@ -16,7 +16,7 @@ const Login = async (req, res) => {
     if (!userExist) {
       return res.status(400).json({ message: "Invaild Credentials" });
     } 
-    const isPasswordValid = await userExist.ComparePassword(password); 
+    const isPasswordValid = await userExist.comparePassword(password); 
     if (isPasswordValid) {
       res.status(200).json({
         msg: "login successful",

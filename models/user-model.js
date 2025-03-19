@@ -58,11 +58,11 @@ userSchema.methods.generateToken = async function () {
     console.log(error);
   }
 };
-// jwt compare method
+//  compare password
 
-userSchema.methods.ComparePassword = async function (pass) {
+userSchema.methods.comparePassword = async function (pass) {
     try {
-      return  await bcrypt.compare(pass,this.password); 
+      return   bcrypt.compare(pass,this.password); 
     } catch (error) {
       console.log(error);
     }
