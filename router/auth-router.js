@@ -1,17 +1,13 @@
 const express = require('express'); 
 const router = express.Router(); 
-const {Login,Signup} = require('../controllers/auth-controller')
+const {Login,Signup} = require('../controllers/auth-controller');
 
+const signupSchema = require('../validators/auth-validatior');
+const validate = require('../middlewares/validate-middleware');
 
 // Routes defined for the applcation 
-router.get('/',(req,res) =>{
-    res.status(200).send("Routers welcome"); 
-});
-
 router.route('/login').post(Login);
-router.route('/signup').post(Signup);
+router.route('/signup').post(validate(signupSchema),Signup);
 
- 
-
-
+//  Routes ends here
 module.exports = router; 

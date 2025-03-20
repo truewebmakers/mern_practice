@@ -9,6 +9,10 @@ const router = require("./router/auth-router"); // Router defined
 
 app.use(express.json());
 
+app.get('/',(req,res) =>{
+  res.status(200).send("welcome to Mern this is Practice here"); 
+});
+
 app.use("/api/v1", router);
 
 connectDb().then(()=> {
